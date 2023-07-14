@@ -24,3 +24,11 @@ or 1 if you want.
 but you have to change all 4 files.
 that's it! 
 good luck!
+
+-----------------
+edit 1:
+it appears I made few confusions! First, ESP32 and ESP32C3 are way different from each other. C3 has a very very high voltage trigger. E.g., Esp32 lowest trigger level is around 2.44 volt, but C3 is over 3 volts. So that is why C3 has a big problem.
+Second:
+CONFIG_ESP32C3_BROWNOUT_DET_LVL 7 is the highest level, meaning, the highest voltage needed. I think it is 3.2-volt trigger. It is a very happy trigger chip! And CONFIG_ESP32C3_BROWNOUT_DET_LVL 1 is around 3 (a bit more than 3) volt. If you use usb or 5 volts for input and give it to a low drop regulator, it is high possibility to reset the chip. If you want to be sure, do this:
+Enable debug level info. Then try to connect to it via WIFI or do something that causes reset. Then when it resets, it prints in serial port, what caused the reset. If it is brownout reset, it prints it.
+
