@@ -1,5 +1,8 @@
 if you have problem with usb voltage, you have to use a special smps to convert 5 to 3.3 volt. but, only for testing, you can do this to your code to disable BROWN_OUT  detector:
 remember that disabling BROWN_OUT is a very bad idea! only use for test purposes. but in my own experience, I would do it! esp32-c3 is a clunky chip. but only after fixing the voltage problems.
+it works on IDF and arduino.
+
+
 #include "soc/soc.h"
 #include "soc/rtc_cntl_reg.h"
 
