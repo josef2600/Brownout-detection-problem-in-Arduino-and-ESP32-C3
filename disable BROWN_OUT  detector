@@ -1,0 +1,11 @@
+if you have problem with usb voltage, you have to use a special smps to convert 5 to 3.3 volt. but, only for testing, you can do this to your code to disable BROWN_OUT  detector:
+
+#include "soc/soc.h"
+#include "soc/rtc_cntl_reg.h"
+
+
+void setup(void)
+{
+    WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0); //disable BROWN_OUT  detector
+...
+}
